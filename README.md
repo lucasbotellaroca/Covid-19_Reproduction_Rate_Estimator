@@ -20,13 +20,11 @@ Data has been gathered form different sources:
 | **retail\_and\_recreation**| Float | % Shows how the number of visitors to places of retail and recreation has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).
 This includes places like restaurants, cafes, shopping centers, theme parks, museums, libraries, and movie theaters.
 This index is smoothed to the rolling 7-day average.
-In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18th day.
- |
+In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18th day.|
 | **grocery\_and\_pharmacy**| Float | % Shows how the number of visitors to grocery and pharmacy stores has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).
 This includes places like grocery markets, food warehouses, farmers markets, specialty food shops, drug stores, and pharmacies.
 This index is smoothed to the rolling 7-day average.
-In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18th day.
- |
+In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18th day.|
 | **residential**| Float | % Shows how the number of visitors to residential areas has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).
 This index is smoothed to the rolling 7-day average.
 In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18th day.
