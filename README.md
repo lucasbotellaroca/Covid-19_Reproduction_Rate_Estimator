@@ -1,4 +1,3 @@
-![Screenshot 2021-05-01 at 09 48 25](https://user-images.githubusercontent.com/71489078/116775255-61d81480-aa62-11eb-87b6-b3d4636b8724.png)
 **Death Forecast Models Based on Political Responses COVID-19**
 
 The intention of the presented project is to explain how restrictions, mobility trends, temperature, demographic and special characteristics of each region affect the spread of Covid-19. In order to achieve this, we will try to predict the reproduction number (R0) for each week. R0 tells you the average number of people who will contract a contagious disease from one person with that disease. It specifically applies to a population of people who were previously free of infection and haven’t been vaccinated, however for our specific case of study we will take into account people that have been vaccinated or that have contracted the disease in order to make our predictions more precise.
@@ -14,6 +13,8 @@ Coronavirus data specially cases and deaths reported by governments are not very
 As mentioned, excess mortality data is unfortunately retrieved weekly, which in the end makes our dataset smaller and more aggregated which may affect the results. It has been recorded that the average time between a person contracting the virus and dying is 18.5 days, therefore, in our dataset, we will associate restrictions of n-18 days with the deaths occurred in day 18, in other words, the restrictions applied that day allowed a number of x deaths 18 days later. 
 
 Excess mortality is recorded weekly on Sundays, and that value is the sum of deaths in the deferred week. What we will do is take the average value of restrictions, mobility trends and other features (detailed in table Features used for the Analysis) associated to days of the referred week. In the calendar below there is a scheme for better understanding:
+
+![Screenshot 2021-05-01 at 09 48 25](https://user-images.githubusercontent.com/71489078/116775255-61d81480-aa62-11eb-87b6-b3d4636b8724.png)
 
 As seen day 22 of the referred month contains the tag “1” since it is related with day “5” of the referred month. Every entry of our dataset will contain the average value of restriction/mobility/other of days [1,7] of the days marked in grey.
 
