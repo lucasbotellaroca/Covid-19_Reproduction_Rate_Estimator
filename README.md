@@ -60,7 +60,7 @@ related with day “5” of the referred month. Every entry of our dataset
 will contain the average value of restriction/mobility/other of days
 \[1,7\] of the days marked in grey.
 
- 2. Data Explanation and Preparation
+## 2. Data Explanation and Preparation
 Once the problem has been stated and what the approach will be for this
 project will firstly detail our sources of data, features, range of
 values and description.
