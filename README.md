@@ -1,3 +1,4 @@
+![Screenshot 2021-05-01 at 09 48 25](https://user-images.githubusercontent.com/71489078/116775255-61d81480-aa62-11eb-87b6-b3d4636b8724.png)
 **Death Forecast Models Based on Political Responses COVID-19**
 
 The intention of the presented project is to explain how restrictions, mobility trends, temperature, demographic and special characteristics of each region affect the spread of Covid-19. In order to achieve this, we will try to predict the reproduction number (R0) for each week. R0 tells you the average number of people who will contract a contagious disease from one person with that disease. It specifically applies to a population of people who were previously free of infection and haven’t been vaccinated, however for our specific case of study we will take into account people that have been vaccinated or that have contracted the disease in order to make our predictions more precise.
