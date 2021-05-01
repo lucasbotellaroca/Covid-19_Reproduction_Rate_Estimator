@@ -1,6 +1,6 @@
-**Death Forecast Model Based on Political Decisions COVID-19**
+# Death Forecast Model Based on Political Decisions COVID-19
 
-Lucas Botella Roca
+## 1. Project statement and Approach
 
 The intention of the presented project is to explain how restrictions,
 mobility trends, temperature, demographic and special characteristics of
@@ -52,88 +52,15 @@ value of restrictions, mobility trends and other features (detailed in
 table Features used for the Analysis) associated to days of the referred
 week. In the calendar below there is a scheme for better understanding:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Monday</strong></th>
-<th><strong>Tuesday</strong></th>
-<th><strong>Wednesday</strong></th>
-<th><strong>Thursday</strong></th>
-<th><strong>Friday</strong></th>
-<th><strong>Saturday</strong></th>
-<th><strong>Sunday</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>25</strong></td>
-<td><strong>26</strong></td>
-<td><strong>27</strong></td>
-<td><strong>28</strong></td>
-<td><strong>29</strong></td>
-<td><strong>30</strong></td>
-<td><p><strong>31</strong></p>
-<p><strong>R0 previous 28 days</strong></p></td>
-</tr>
-<tr class="even">
-<td><strong>1</strong></td>
-<td><strong>2</strong></td>
-<td><strong>3</strong></td>
-<td><strong>4</strong></td>
-<td><p><strong>5</strong></p>
-<p>1</p></td>
-<td><p><strong>6</strong></p>
-<p>2</p></td>
-<td><p><strong>7</strong></p>
-<p>3</p></td>
-</tr>
-<tr class="odd">
-<td><p><strong>8</strong></p>
-<p>4</p></td>
-<td><p><strong>9</strong></p>
-<p>5</p></td>
-<td><p><strong>10</strong></p>
-<p>6</p></td>
-<td><p><strong>11</strong></p>
-<p>7</p></td>
-<td><strong>12</strong></td>
-<td><strong>13</strong></td>
-<td><strong>14</strong></td>
-</tr>
-<tr class="even">
-<td><strong>15</strong></td>
-<td><strong>16</strong></td>
-<td><strong>17</strong></td>
-<td><strong>18</strong></td>
-<td><strong>19</strong></td>
-<td><strong>20</strong></td>
-<td><strong>21</strong></td>
-</tr>
-<tr class="odd">
-<td><p><strong>22</strong></p>
-<p>1</p></td>
-<td><p><strong>23</strong></p>
-<p>2</p></td>
-<td><p><strong>24</strong></p>
-<p>3</p></td>
-<td><p><strong>25</strong></p>
-<p>4</p></td>
-<td><p><strong>26</strong></p>
-<p>5</p></td>
-<td><p><strong>27</strong></p>
-<p>6</p></td>
-<td><p><strong>28</strong></p>
-<p><strong>R0 to predict</strong></p>
-<p>7</p></td>
-</tr>
-</tbody>
-</table>
+![Screenshot 2021-05-01 at 10 02 00](https://user-images.githubusercontent.com/71489078/116775621-479f3600-aa64-11eb-8ae7-20bca77bccc3.png)
+
 
 As seen day 22 of the referred month contains the tag “1” since it is
 related with day “5” of the referred month. Every entry of our dataset
 will contain the average value of restriction/mobility/other of days
 \[1,7\] of the days marked in grey.
 
+ 2. Data Explanation and Preparation
 Once the problem has been stated and what the approach will be for this
 project will firstly detail our sources of data, features, range of
 values and description.
