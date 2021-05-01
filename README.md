@@ -1,14 +1,16 @@
-**Death Forecast Models Based on Political Responses COVID-19**
+# Death Forecast Models Based on Political Responses COVID-19
+
+## 1. Project Approach
 
 The intention of the presented project is to explain how restrictions, mobility trends, temperature, demographic and special characteristics of each region affect the spread of Covid-19. In order to achieve this, we will try to predict the reproduction number (R0) for each week. R0 tells you the average number of people who will contract a contagious disease from one person with that disease. It specifically applies to a population of people who were previously free of infection and haven’t been vaccinated, however for our specific case of study we will take into account people that have been vaccinated or that have contracted the disease in order to make our predictions more precise.
 
 In general terms, as mentioned, R0 tells you in average how many infections may be caused by one infected individual, this of course is related with the restrictions applied by governments. 
 
-•	If *R0 < 1* one infected person will cause less than one infection. In this case the disease will eventually die out.
+•	If **R0 < 1** one infected person will cause less than one infection. In this case the disease will eventually die out.
 
-•	If *R0 > 1* one infected person will cause more than one infection. In this case the disease will increase and eventually cause an outbreak or pandemic.
+•	If **R0 > 1** one infected person will cause more than one infection. In this case the disease will increase and eventually cause an outbreak or pandemic.
 
-•	If *R0 = 1* one infected person will cause one infection. In this case the disease will still be transmitted and there is a risk of outbreak or pandemic.
+•	If **R0 = 1** one infected person will cause one infection. In this case the disease will still be transmitted and there is a risk of outbreak or pandemic.
 
 Coronavirus data specially cases and deaths reported by governments are not very trustworthy, especially in the toughest times of the epidemic. Taking this into account our proxy variable to detect possible infections will be the excess mortality recorded. Excess mortality is a measure of the excess number of deaths recorded in 2020 and 2021 in relation with previous years by week, such difference will of course, indicate us, the number of deaths caused by coronavirus disease, making the assumption that there are no other causes that may cause an excess of deaths.
 
