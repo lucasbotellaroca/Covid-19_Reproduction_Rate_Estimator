@@ -13,7 +13,6 @@ Coronavirus data specially cases and deaths reported by governments are not very
 As mentioned, excess mortality data is unfortunately retrieved weekly, which in the end makes our dataset smaller and more aggregated which may affect the results. It has been recorded that the average time between a person contracting the virus and dying is 18.5 days, therefore, in our dataset, we will associate restrictions of n-18 days with the deaths occurred in day 18, in other words, the restrictions applied that day allowed a number of x deaths 18 days later. 
 
 Excess mortality is recorded weekly on Sundays, and that value is the sum of deaths in the deferred week. What we will do is take the average value of restrictions, mobility trends and other features (detailed in table Features used for the Analysis) associated to days of the referred week. In the calendar below there is a scheme for better understanding:
-![image](https://user-images.githubusercontent.com/71489078/116775205-1faed300-aa62-11eb-8eda-796b370ec9ab.png)
 
 As seen day 22 of the referred month contains the tag “1” since it is related with day “5” of the referred month. Every entry of our dataset will contain the average value of restriction/mobility/other of days [1,7] of the days marked in grey.
 
@@ -33,4 +32,3 @@ o	https://data.worldbank.org/indicator/SH.MED.BEDS.ZS
 
 -	National Oceanic and Atmospheric Administration (NOAA) Us department of commerce. 
 o	https://www.noaa.gov/
-![image](https://user-images.githubusercontent.com/71489078/116775219-2d645880-aa62-11eb-9185-5a088190d0a3.png)
