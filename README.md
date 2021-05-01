@@ -8,7 +8,7 @@ each region affect the spread of Covid-19. In order to achieve this, we
 will try to predict the reproduction number (R0) for each week. R0 tells
 you the average number of people who will contract a contagious disease
 from one person with that disease. It specifically applies to a
-population of people who were previously free of infection and haven't
+population of people who were previously free of infection and haven’t
 been vaccinated, however for our specific case of study we will take
 into account people that have been vaccinated or that have contracted
 the disease in order to make our predictions more precise.
@@ -17,10 +17,10 @@ In general terms, as mentioned, R0 tells you in average how many
 infections may be caused by one infected individual, this of course is
 related with the restrictions applied by governments.
 
--   If R0 \< 1 one infected person will cause less than one infection.
+-   If R0 &lt; 1 one infected person will cause less than one infection.
     In this case the disease will eventually die out.
 
--   If R0 \> 1 one infected person will cause more than one infection.
+-   If R0 &gt; 1 one infected person will cause more than one infection.
     In this case the disease will increase and eventually cause an
     outbreak or pandemic.
 
@@ -52,39 +52,85 @@ value of restrictions, mobility trends and other features (detailed in
 table Features used for the Analysis) associated to days of the referred
 week. In the calendar below there is a scheme for better understanding:
 
-+---------+---------+---------+---------+---------+---------+---------+
-| **M     | **Tu    | **Wedn  | **Thu   | **F     | **Sat   | **S     |
-| onday** | esday** | esday** | rsday** | riday** | urday** | unday** |
-+=========+=========+=========+=========+=========+=========+=========+
-| **25**  | **26**  | **27**  | **28**  | **29**  | **30**  | **31**  |
-|         |         |         |         |         |         |         |
-|         |         |         |         |         |         | **R0    |
-|         |         |         |         |         |         | p       |
-|         |         |         |         |         |         | revious |
-|         |         |         |         |         |         | 28      |
-|         |         |         |         |         |         | days**  |
-+---------+---------+---------+---------+---------+---------+---------+
-| **1**   | **2**   | **3**   | **4**   | **5**   | **6**   | **7**   |
-|         |         |         |         |         |         |         |
-|         |         |         |         | 1       | 2       | 3       |
-+---------+---------+---------+---------+---------+---------+---------+
-| **8**   | **9**   | **10**  | **11**  | **12**  | **13**  | **14**  |
-|         |         |         |         |         |         |         |
-| 4       | 5       | 6       | 7       |         |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
-| **15**  | **16**  | **17**  | **18**  | **19**  | **20**  | **21**  |
-+---------+---------+---------+---------+---------+---------+---------+
-| **22**  | **23**  | **24**  | **25**  | **26**  | **27**  | **28**  |
-|         |         |         |         |         |         |         |
-| 1       | 2       | 3       | 4       | 5       | 6       | **R0 to |
-|         |         |         |         |         |         | pr      |
-|         |         |         |         |         |         | edict** |
-|         |         |         |         |         |         |         |
-|         |         |         |         |         |         | 7       |
-+---------+---------+---------+---------+---------+---------+---------+
+<table>
+<thead>
+<tr class="header">
+<th><strong>Monday</strong></th>
+<th><strong>Tuesday</strong></th>
+<th><strong>Wednesday</strong></th>
+<th><strong>Thursday</strong></th>
+<th><strong>Friday</strong></th>
+<th><strong>Saturday</strong></th>
+<th><strong>Sunday</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>25</strong></td>
+<td><strong>26</strong></td>
+<td><strong>27</strong></td>
+<td><strong>28</strong></td>
+<td><strong>29</strong></td>
+<td><strong>30</strong></td>
+<td><p><strong>31</strong></p>
+<p><strong>R0 previous 28 days</strong></p></td>
+</tr>
+<tr class="even">
+<td><strong>1</strong></td>
+<td><strong>2</strong></td>
+<td><strong>3</strong></td>
+<td><strong>4</strong></td>
+<td><p><strong>5</strong></p>
+<p>1</p></td>
+<td><p><strong>6</strong></p>
+<p>2</p></td>
+<td><p><strong>7</strong></p>
+<p>3</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>8</strong></p>
+<p>4</p></td>
+<td><p><strong>9</strong></p>
+<p>5</p></td>
+<td><p><strong>10</strong></p>
+<p>6</p></td>
+<td><p><strong>11</strong></p>
+<p>7</p></td>
+<td><strong>12</strong></td>
+<td><strong>13</strong></td>
+<td><strong>14</strong></td>
+</tr>
+<tr class="even">
+<td><strong>15</strong></td>
+<td><strong>16</strong></td>
+<td><strong>17</strong></td>
+<td><strong>18</strong></td>
+<td><strong>19</strong></td>
+<td><strong>20</strong></td>
+<td><strong>21</strong></td>
+</tr>
+<tr class="odd">
+<td><p><strong>22</strong></p>
+<p>1</p></td>
+<td><p><strong>23</strong></p>
+<p>2</p></td>
+<td><p><strong>24</strong></p>
+<p>3</p></td>
+<td><p><strong>25</strong></p>
+<p>4</p></td>
+<td><p><strong>26</strong></p>
+<p>5</p></td>
+<td><p><strong>27</strong></p>
+<p>6</p></td>
+<td><p><strong>28</strong></p>
+<p><strong>R0 to predict</strong></p>
+<p>7</p></td>
+</tr>
+</tbody>
+</table>
 
-As seen day 22 of the referred month contains the tag "1" since it is
-related with day "5" of the referred month. Every entry of our dataset
+As seen day 22 of the referred month contains the tag “1” since it is
+related with day “5” of the referred month. Every entry of our dataset
 will contain the average value of restriction/mobility/other of days
 \[1,7\] of the days marked in grey.
 
@@ -119,760 +165,370 @@ Data has been gathered form different sources:
 
     -   https://www.noaa.gov/
 
-+----------------------------+----------+----------------------------+
-| **Features used for the    |          |                            |
-| Analysis**                 |          |                            |
-+============================+==========+============================+
-| **Name**                   | **Type** | **Description**            |
-+----------------------------+----------+----------------------------+
-| **Code**                   | String   | Country in ISO 3166-1      |
-|                            |          | alpha-2 Code               |
-+----------------------------+----------+----------------------------+
-| **Date**                   | Date     | Date in yyyy-mm-dd format. |
-|                            |          | Date contains only Sundays |
-|                            |          | since it is grouped by     |
-|                            |          | week, all the rest of      |
-|                            |          | features are aggregated    |
-|                            |          | under this constraint.     |
-+----------------------------+----------+----------------------------+
-| **retail_and_recreation**  | Float    | \% Shows how the number of |
-|                            |          | visitors to places of      |
-|                            |          | retail and recreation has  |
-|                            |          | changed compared to        |
-|                            |          | baseline days (the median  |
-|                            |          | value for the 5‑week       |
-|                            |          | period from January 3 to   |
-|                            |          | February 6, 2020).         |
-|                            |          |                            |
-|                            |          | This includes places like  |
-|                            |          | restaurants, cafes,        |
-|                            |          | shopping centers, theme    |
-|                            |          | parks, museums, libraries, |
-|                            |          | and movie theaters.        |
-|                            |          |                            |
-|                            |          | This index is smoothed to  |
-|                            |          | the rolling 7-day average. |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **grocery_and_pharmacy**   | Float    | \% Shows how the number of |
-|                            |          | visitors to grocery and    |
-|                            |          | pharmacy stores has        |
-|                            |          | changed compared to        |
-|                            |          | baseline days (the median  |
-|                            |          | value for the 5‑week       |
-|                            |          | period from January 3 to   |
-|                            |          | February 6, 2020).         |
-|                            |          |                            |
-|                            |          | This includes places like  |
-|                            |          | grocery markets, food      |
-|                            |          | warehouses, farmers        |
-|                            |          | markets, specialty food    |
-|                            |          | shops, drug stores, and    |
-|                            |          | pharmacies.                |
-|                            |          |                            |
-|                            |          | This index is smoothed to  |
-|                            |          | the rolling 7-day average. |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **residential**            | Float    | \% Shows how the number of |
-|                            |          | visitors to residential    |
-|                            |          | areas has changed compared |
-|                            |          | to baseline days (the      |
-|                            |          | median value for the       |
-|                            |          | 5‑week period from January |
-|                            |          | 3 to February 6, 2020).    |
-|                            |          |                            |
-|                            |          | This index is smoothed to  |
-|                            |          | the rolling 7-day average. |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **transit_stations**       | Float    | \% Shows how the number of |
-|                            |          | visitors to transit        |
-|                            |          | stations has changed       |
-|                            |          | compared to baseline days  |
-|                            |          | (the median value for the  |
-|                            |          | 5‑week period from January |
-|                            |          | 3 to February 6, 2020).    |
-|                            |          |                            |
-|                            |          | This includes public       |
-|                            |          | transport hubs such as     |
-|                            |          | subway, bus, and train     |
-|                            |          | stations.                  |
-|                            |          |                            |
-|                            |          | This index is smoothed to  |
-|                            |          | the rolling 7-day average. |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **parks**                  | Float    | \% Shows how the number of |
-|                            |          | visitors to parks and      |
-|                            |          | outdoor spaces has changed |
-|                            |          | compared to baseline days  |
-|                            |          | (the median value for the  |
-|                            |          | 5‑week period from January |
-|                            |          | 3 to February 6, 2020).    |
-|                            |          |                            |
-|                            |          | This includes places like  |
-|                            |          | local parks, national      |
-|                            |          | parks, public beaches,     |
-|                            |          | marinas, dog parks,        |
-|                            |          | plazas, and public         |
-|                            |          | gardens.                   |
-|                            |          |                            |
-|                            |          | This index is smoothed to  |
-|                            |          | the rolling 7-day average. |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **workplaces**             | Float    | \% Shows how the number of |
-|                            |          | visitors to workplaces has |
-|                            |          | changed compared to        |
-|                            |          | baseline days (the median  |
-|                            |          | value for the 5‑week       |
-|                            |          | period from January 3 to   |
-|                            |          | February 6, 2020).         |
-|                            |          |                            |
-|                            |          | This index is smoothed to  |
-|                            |          | the rolling 7-day average. |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **contact_tracing**        | Integer  | Government policies on     |
-|                            |          | contract tracing for       |
-|                            |          | COVID-19.                  |
-|                            |          |                            |
-|                            |          | -   No tracing -- 0        |
-|                            |          |                            |
-|                            |          | -   Limited tracing (Only  |
-|                            |          |     some cases) - 1        |
-|                            |          |                            |
-|                            |          | -   Comprehensive tracing  |
-|                            |          |     (All cases) -- 2       |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **testing_policy**         | Integer  | Government policies on     |
-|                            |          | testing for COVID-19. Note |
-|                            |          | that this relates to PCR   |
-|                            |          | testing for the virus      |
-|                            |          | only; it does not include  |
-|                            |          | non-PCR, antibody testing. |
-|                            |          |                            |
-|                            |          | -   No testing policy- 0   |
-|                            |          |                            |
-|                            |          | -   Testing only for those |
-|                            |          |     who both (a) have      |
-|                            |          |     symptoms AND (b) meet  |
-|                            |          |     specific criteria      |
-|                            |          |     (e.g. key workers,     |
-|                            |          |     admitted to hospital,  |
-|                            |          |     came into contact with |
-|                            |          |     a known case, returned |
-|                            |          |     from overseas) - 1     |
-|                            |          |                            |
-|                            |          | -   Testing of anyone      |
-|                            |          |     showing COVID-19       |
-|                            |          |     symptoms - 2           |
-|                            |          |                            |
-|                            |          | -   Open public testing    |
-|                            |          |     (e.g "drive through"   |
-|                            |          |     testing available to   |
-|                            |          |     asymptomatic people)   |
-|                            |          |     -- 3                   |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **inter                    | Integer  | Government policies on     |
-| national_travel_controls** |          | restrictions on            |
-|                            |          | international travel       |
-|                            |          | controls.                  |
-|                            |          |                            |
-|                            |          | -   No measures - 0        |
-|                            |          |                            |
-|                            |          | -   Screening - 1          |
-|                            |          |                            |
-|                            |          | -   Quarantine from        |
-|                            |          |     high-risk regions - 2  |
-|                            |          |                            |
-|                            |          | -   Ban on high-risk       |
-|                            |          |     regions - 3            |
-|                            |          |                            |
-|                            |          | -   Total border closure - |
-|                            |          |     4                      |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **restric                  | Integer  | Government policies on     |
-| tions_internal_movements** |          | restrictions on internal   |
-|                            |          | movement/travel between    |
-|                            |          | regions and cities.        |
-|                            |          |                            |
-|                            |          | -   No measures - 0        |
-|                            |          |                            |
-|                            |          | -   Recommend movement     |
-|                            |          |     restriction - 1        |
-|                            |          |                            |
-|                            |          | -   Restrict movement -- 2 |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **close_public_transport** | Integer  | Government policies on     |
-|                            |          | public transport closures  |
-|                            |          |                            |
-|                            |          | -   No measures - 0        |
-|                            |          |                            |
-|                            |          | -   Recommended closing    |
-|                            |          |     (or reduce volume) - 1 |
-|                            |          |                            |
-|                            |          | -   Required closing (or   |
-|                            |          |     prohibit most using    |
-|                            |          |     it) -- 2               |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **publ                     | Integer  | Public information         |
-| ic_information_campaigns** |          | campaigns on COVID-19.     |
-|                            |          |                            |
-|                            |          | -   None -- 0              |
-|                            |          |                            |
-|                            |          | -   Public officials       |
-|                            |          |     urging caution -- 1    |
-|                            |          |                            |
-|                            |          | -   Coordinated            |
-|                            |          |     information campaign   |
-|                            |          |     -- 2                   |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **facial_coverings**       | Integer  | Government policies on the |
-|                            |          | use of face coverings      |
-|                            |          | outside-of-the-home.       |
-|                            |          |                            |
-|                            |          | Countries are grouped into |
-|                            |          | five categories:           |
-|                            |          |                            |
-|                            |          | -   No policy - 0          |
-|                            |          |                            |
-|                            |          | -   Recommended - 1        |
-|                            |          |                            |
-|                            |          | -   Required in some       |
-|                            |          |     specified              |
-|                            |          |     shared/public spaces   |
-|                            |          |     outside the home with  |
-|                            |          |     other people present,  |
-|                            |          |     or some situations     |
-|                            |          |     when social distancing |
-|                            |          |     not possible - 2       |
-|                            |          |                            |
-|                            |          | -   Required in all        |
-|                            |          |     shared/public spaces   |
-|                            |          |     outside the home with  |
-|                            |          |     other people present   |
-|                            |          |     or all situations when |
-|                            |          |     social distancing not  |
-|                            |          |     possible - 3           |
-|                            |          |                            |
-|                            |          | -   Required outside the   |
-|                            |          |     home at all times      |
-|                            |          |     regardless of location |
-|                            |          |     or presence of other   |
-|                            |          |     people -- 4            |
-|                            |          |                            |
-|                            |          | Note that there may be     |
-|                            |          | sub-national or regional   |
-|                            |          | differences in policies on |
-|                            |          | face coverings. The policy |
-|                            |          | categories shown may not   |
-|                            |          | apply at all sub-national  |
-|                            |          | levels. A country is coded |
-|                            |          | based on its most          |
-|                            |          | stringent policy at the    |
-|                            |          | sub-national level.        |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **stay_home_requirements** | Integer  | Government policies on     |
-|                            |          | stay-at-home requirements  |
-|                            |          | or household lockdowns.    |
-|                            |          |                            |
-|                            |          | -   No measures - 0        |
-|                            |          |                            |
-|                            |          | -   Recommended not to     |
-|                            |          |     leave the house - 1    |
-|                            |          |                            |
-|                            |          | -   Required to not leave  |
-|                            |          |     the house with         |
-|                            |          |     exceptions for daily   |
-|                            |          |     exercise, grocery      |
-|                            |          |     shopping, and          |
-|                            |          |     'essential' trips - 2  |
-|                            |          |                            |
-|                            |          | -   Required to not leave  |
-|                            |          |     the house with minimal |
-|                            |          |     exceptions (e.g.       |
-|                            |          |     allowed to leave only  |
-|                            |          |     once every few days,   |
-|                            |          |     or only one person can |
-|                            |          |     leave at a time, etc.) |
-|                            |          |     -- 3                   |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **restriction_gatherings** | Integer  | Government policies on     |
-|                            |          | restrictions on public     |
-|                            |          | gatherings.                |
-|                            |          |                            |
-|                            |          | Countries are grouped into |
-|                            |          | five categories:           |
-|                            |          |                            |
-|                            |          | -   No restrictions - 0    |
-|                            |          |                            |
-|                            |          | -   Restrictions on very   |
-|                            |          |     large gatherings (the  |
-|                            |          |     limit is above 1000    |
-|                            |          |     people) - 1            |
-|                            |          |                            |
-|                            |          | -   Restrictions on        |
-|                            |          |     gatherings between 100 |
-|                            |          |     to 1000 people - 2     |
-|                            |          |                            |
-|                            |          | -   Restrictions on        |
-|                            |          |     gatherings between 10  |
-|                            |          |     to 100 people - 3      |
-|                            |          |                            |
-|                            |          | -   Restrictions on        |
-|                            |          |     gatherings of less     |
-|                            |          |     than 10 people -- 4    |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **cancel_public_events**   | Integer  | Cancellation of public     |
-|                            |          | events.                    |
-|                            |          |                            |
-|                            |          | No measures - 0            |
-|                            |          |                            |
-|                            |          | Recommended cancellations  |
-|                            |          | - 1                        |
-|                            |          |                            |
-|                            |          | Required cancellations --  |
-|                            |          | 2                          |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **workplace_closures**     | Integer  | Government policies on     |
-|                            |          | workplaces closures.       |
-|                            |          |                            |
-|                            |          | No measures -- 0           |
-|                            |          |                            |
-|                            |          | Recommended - 1            |
-|                            |          |                            |
-|                            |          | Required for some - 2      |
-|                            |          |                            |
-|                            |          | Required for all but key   |
-|                            |          | workers -- 3               |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **school_closures**        | Integer  | Government policies on     |
-|                            |          | school closures.           |
-|                            |          |                            |
-|                            |          | No measures - 0            |
-|                            |          |                            |
-|                            |          | Recommended - 1            |
-|                            |          |                            |
-|                            |          | Required (only at some     |
-|                            |          | levels) - 2                |
-|                            |          |                            |
-|                            |          | Required (all levels) - 3  |
-|                            |          |                            |
-|                            |          | Note that there may be     |
-|                            |          | sub-national or regional   |
-|                            |          | differences in policies on |
-|                            |          | school closures. The       |
-|                            |          | policy categories shown    |
-|                            |          | may not apply at all       |
-|                            |          | sub-national levels. A     |
-|                            |          | country is coded as        |
-|                            |          | 'required closures' if at  |
-|                            |          | least some sub-national    |
-|                            |          | regions have required      |
-|                            |          | closures.                  |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **debt_relief**            | Integer  | Governments provide debt   |
-|                            |          | or contract relief to      |
-|                            |          | citizens during the        |
-|                            |          | COVID-19 pandemic.         |
-|                            |          |                            |
-|                            |          | No relief -- 0             |
-|                            |          |                            |
-|                            |          | Narrow relief -- 1         |
-|                            |          |                            |
-|                            |          | Broad relief -- 2          |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **income_support**         | Integer  | Governments provide income |
-|                            |          | support to workers during  |
-|                            |          | the COVID-19 pandemic.     |
-|                            |          |                            |
-|                            |          | No income support -- 0     |
-|                            |          |                            |
-|                            |          | Covers \<50% of lost       |
-|                            |          | salary -- 1                |
-|                            |          |                            |
-|                            |          | Covers \>50% of lost       |
-|                            |          | salary -- 2                |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **Holiday**                | Integer  | Number of holiday in the   |
-|                            |          | selected time period       |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **temp**                   | Float    | Average temperature in     |
-|                            |          | celsius of all stations in |
-|                            |          | the selected time period.  |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **prcp**                   | Float    | Average precipitation in   |
-|                            |          | Celsius of all stations in |
-|                            |          | the selected time period   |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **doctors_per_1000**       | Float    | Number of doctors per 1000 |
-|                            |          | habitants last year        |
-|                            |          | recorded                   |
-+----------------------------+----------+----------------------------+
-| **nurses_per_1000**        | Float    | Number of nurses per 1000  |
-|                            |          | habitants last year        |
-|                            |          | recorded                   |
-+----------------------------+----------+----------------------------+
-| **beds_per_1000**          | Float    | Number of hospital beds    |
-|                            |          | per 1000 habitants last    |
-|                            |          | year recorded              |
-+----------------------------+----------+----------------------------+
-| **number_of_arrivals**     | Float    | Number of tourism arrivals |
-|                            |          | last year recorded         |
-+----------------------------+----------+----------------------------+
-| **urban_population**       | Float    | \% of urban population     |
-|                            |          | last year recorded         |
-+----------------------------+----------+----------------------------+
-| **to                       | Float    | Share of the total         |
-| tal_vaccinations_per_100** |          | population that received   |
-|                            |          | at least one vaccine dose. |
-|                            |          | This may not equal the     |
-|                            |          | shares that are fully      |
-|                            |          | vaccinated if the vaccine  |
-|                            |          | requires two doses.        |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **%                        | Float    | \% of youthment            |
-| youth_unemployment_total** |          | unemployment last year     |
-|                            |          | recorded                   |
-+----------------------------+----------+----------------------------+
-| **life_expectancy**        | Float    | Average life expectancy at |
-|                            |          | birth last year recorded   |
-+----------------------------+----------+----------------------------+
-| **%df_population_gr_65**   | Float    | \% of population with age  |
-|                            |          | 65 or higher last year     |
-|                            |          | recorded                   |
-+----------------------------+----------+----------------------------+
-| **UN Population Division   | Float    | Median age last year       |
-| (Median Age) (2017)**      |          | recorded                   |
-+----------------------------+----------+----------------------------+
-| **Excess mortality         | Float    | Excess mortality is a term |
-| P-scores, all ages Prev 36 |          | used in epidemiology and   |
-| days**                     |          | public health that refers  |
-|                            |          | to the number of deaths    |
-|                            |          | from all causes during a   |
-|                            |          | crisis above and beyond    |
-|                            |          | what we would have         |
-|                            |          | expected to see under      |
-|                            |          | 'normal' conditions.       |
-|                            |          |                            |
-|                            |          | P-score = 100\* Deaths     |
-|                            |          | (2020-2021) - Avg.Deaths   |
-|                            |          | (2015-2019) / Avg.Deaths   |
-|                            |          | (2015-2019)                |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-36^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **Excess mortality         | Float    | Excess mortality is a term |
-| P-scores, all ages Prev 18 |          | used in epidemiology and   |
-| days**                     |          | public health that refers  |
-|                            |          | to the number of deaths    |
-|                            |          | from all causes during a   |
-|                            |          | crisis above and beyond    |
-|                            |          | what we would have         |
-|                            |          | expected to see under      |
-|                            |          | 'normal' conditions.       |
-|                            |          |                            |
-|                            |          | P-score = 100\* Deaths     |
-|                            |          | (2020-2021) - Avg.Deaths   |
-|                            |          | (2015-2019) / Avg.Deaths   |
-|                            |          | (2015-2019)                |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **Excess mortality         | Float    | Excess mortality is a term |
-| P-scores, all ages Prev 7  |          | used in epidemiology and   |
-| days**                     |          | public health that refers  |
-|                            |          | to the number of deaths    |
-|                            |          | from all causes during a   |
-|                            |          | crisis above and beyond    |
-|                            |          | what we would have         |
-|                            |          | expected to see under      |
-|                            |          | 'normal' conditions.       |
-|                            |          |                            |
-|                            |          | P-score = 100\* Deaths     |
-|                            |          | (2020-2021) - Avg.Deaths   |
-|                            |          | (2015-2019) / Avg.Deaths   |
-|                            |          |                            |
-|                            |          | (2015-2019)                |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-7^th^ day.               |
-+----------------------------+----------+----------------------------+
-| **Excess mortality         | Float    | Excess mortality is a term |
-| P-scores, all ages**       |          | used in epidemiology and   |
-|                            |          | public health that refers  |
-|                            |          | to the number of deaths    |
-|                            |          | from all causes during a   |
-|                            |          | crisis above and beyond    |
-|                            |          | what we would have         |
-|                            |          | expected to see under      |
-|                            |          | 'normal' conditions.       |
-|                            |          |                            |
-|                            |          | P-score = 100\* Deaths     |
-|                            |          | (2020-2021) - Avg.Deaths   |
-|                            |          | (2015-2019) / Avg.Deaths   |
-|                            |          | (2015-2019)                |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week.                      |
-+----------------------------+----------+----------------------------+
-| **average_d                | Float    | Average number of deaths   |
-| eaths_2015_2019_all_ages** |          | in selected period for     |
-|                            |          | 2015-2019                  |
-+----------------------------+----------+----------------------------+
-| **deaths_prev_7**          | Float    | Raw number of deaths 7     |
-|                            |          | days prior to selected     |
-|                            |          | period                     |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-7^th^ day.               |
-+----------------------------+----------+----------------------------+
-| **deaths_prev_18**         | Float    | Raw number of deaths 18    |
-|                            |          | days prior to selected     |
-|                            |          | period                     |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-18^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **deaths_prev_36**         | Float    | Raw number of deaths 36    |
-|                            |          | days prior to selected     |
-|                            |          | period                     |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week. For each day we      |
-|                            |          | retrieve the value of this |
-|                            |          | same feature in the        |
-|                            |          | n-36^th^ day.              |
-+----------------------------+----------+----------------------------+
-| **deaths**                 | Float    | Raw number of deaths       |
-|                            |          | selected period            |
-|                            |          |                            |
-|                            |          | In our dataset this value  |
-|                            |          | is calculated as the       |
-|                            |          | average in the selected    |
-|                            |          | week.                      |
-+----------------------------+----------+----------------------------+
-| **accumulated**            | Float    | Accumulated percentage of  |
-|                            |          | deaths.                    |
-+----------------------------+----------+----------------------------+
-| **R0**                     | Float    |                            |
-+----------------------------+----------+----------------------------+
+<table>
+<thead>
+<tr class="header">
+<th><strong>Features used for the Analysis</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Name</strong></td>
+<td><strong>Type</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Code</strong></td>
+<td>String</td>
+<td>Country in ISO 3166-1 alpha-2 Code</td>
+</tr>
+<tr class="odd">
+<td><strong>Date</strong></td>
+<td>Date</td>
+<td>Date in yyyy-mm-dd format. Date contains only Sundays since it is grouped by week, all the rest of features are aggregated under this constraint.</td>
+</tr>
+<tr class="even">
+<td><strong>retail_and_recreation</strong></td>
+<td>Float</td>
+<td><p>% Shows how the number of visitors to places of retail and recreation has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).</p>
+<p>This includes places like restaurants, cafes, shopping centers, theme parks, museums, libraries, and movie theaters.</p>
+<p>This index is smoothed to the rolling 7-day average.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>grocery_and_pharmacy</strong></td>
+<td>Float</td>
+<td><p>% Shows how the number of visitors to grocery and pharmacy stores has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).</p>
+<p>This includes places like grocery markets, food warehouses, farmers markets, specialty food shops, drug stores, and pharmacies.</p>
+<p>This index is smoothed to the rolling 7-day average.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>residential</strong></td>
+<td>Float</td>
+<td><p>% Shows how the number of visitors to residential areas has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).</p>
+<p>This index is smoothed to the rolling 7-day average.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>transit_stations</strong></td>
+<td>Float</td>
+<td><p>% Shows how the number of visitors to transit stations has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).</p>
+<p>This includes public transport hubs such as subway, bus, and train stations.</p>
+<p>This index is smoothed to the rolling 7-day average.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>parks</strong></td>
+<td>Float</td>
+<td><p>% Shows how the number of visitors to parks and outdoor spaces has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).</p>
+<p>This includes places like local parks, national parks, public beaches, marinas, dog parks, plazas, and public gardens.</p>
+<p>This index is smoothed to the rolling 7-day average.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>workplaces</strong></td>
+<td>Float</td>
+<td><p>% Shows how the number of visitors to workplaces has changed compared to baseline days (the median value for the 5‑week period from January 3 to February 6, 2020).</p>
+<p>This index is smoothed to the rolling 7-day average.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>contact_tracing</strong></td>
+<td>Integer</td>
+<td><p>Government policies on contract tracing for COVID-19.</p>
+<ul>
+<li><p>No tracing – 0</p></li>
+<li><p>Limited tracing (Only some cases) - 1</p></li>
+<li><p>Comprehensive tracing (All cases) – 2</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>testing_policy</strong></td>
+<td>Integer</td>
+<td><p>Government policies on testing for COVID-19. Note that this relates to PCR testing for the virus only; it does not include non-PCR, antibody testing.</p>
+<ul>
+<li><p>No testing policy- 0</p></li>
+<li><p>Testing only for those who both (a) have symptoms AND (b) meet specific criteria (e.g. key workers, admitted to hospital, came into contact with a known case, returned from overseas) - 1</p></li>
+<li><p>Testing of anyone showing COVID-19 symptoms - 2</p></li>
+<li><p>Open public testing (e.g “drive through” testing available to asymptomatic people) – 3</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>international_travel_controls</strong></td>
+<td>Integer</td>
+<td><p>Government policies on restrictions on international travel controls.</p>
+<ul>
+<li><p>No measures - 0</p></li>
+<li><p>Screening - 1</p></li>
+<li><p>Quarantine from high-risk regions - 2</p></li>
+<li><p>Ban on high-risk regions - 3</p></li>
+<li><p>Total border closure - 4</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>restrictions_internal_movements</strong></td>
+<td>Integer</td>
+<td><p>Government policies on restrictions on internal movement/travel between regions and cities.</p>
+<ul>
+<li><p>No measures - 0</p></li>
+<li><p>Recommend movement restriction - 1</p></li>
+<li><p>Restrict movement – 2</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>close_public_transport</strong></td>
+<td>Integer</td>
+<td><p>Government policies on public transport closures</p>
+<ul>
+<li><p>No measures - 0</p></li>
+<li><p>Recommended closing (or reduce volume) - 1</p></li>
+<li><p>Required closing (or prohibit most using it) – 2</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>public_information_campaigns</strong></td>
+<td>Integer</td>
+<td><p>Public information campaigns on COVID-19.</p>
+<ul>
+<li><p>None – 0</p></li>
+<li><p>Public officials urging caution – 1</p></li>
+<li><p>Coordinated information campaign – 2</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>facial_coverings</strong></td>
+<td>Integer</td>
+<td><p>Government policies on the use of face coverings outside-of-the-home.</p>
+<p>Countries are grouped into five categories:</p>
+<ul>
+<li><p>No policy - 0</p></li>
+<li><p>Recommended - 1</p></li>
+<li><p>Required in some specified shared/public spaces outside the home with other people present, or some situations when social distancing not possible - 2</p></li>
+<li><p>Required in all shared/public spaces outside the home with other people present or all situations when social distancing not possible - 3</p></li>
+<li><p>Required outside the home at all times regardless of location or presence of other people – 4</p></li>
+</ul>
+<p>Note that there may be sub-national or regional differences in policies on face coverings. The policy categories shown may not apply at all sub-national levels. A country is coded based on its most stringent policy at the sub-national level.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>stay_home_requirements</strong></td>
+<td>Integer</td>
+<td><p>Government policies on stay-at-home requirements or household lockdowns.</p>
+<ul>
+<li><p>No measures - 0</p></li>
+<li><p>Recommended not to leave the house - 1</p></li>
+<li><p>Required to not leave the house with exceptions for daily exercise, grocery shopping, and ‘essential’ trips - 2</p></li>
+<li><p>Required to not leave the house with minimal exceptions (e.g. allowed to leave only once every few days, or only one person can leave at a time, etc.) – 3</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>restriction_gatherings</strong></td>
+<td>Integer</td>
+<td><p>Government policies on restrictions on public gatherings.</p>
+<p>Countries are grouped into five categories:</p>
+<ul>
+<li><p>No restrictions - 0</p></li>
+<li><p>Restrictions on very large gatherings (the limit is above 1000 people) - 1</p></li>
+<li><p>Restrictions on gatherings between 100 to 1000 people - 2</p></li>
+<li><p>Restrictions on gatherings between 10 to 100 people - 3</p></li>
+<li><p>Restrictions on gatherings of less than 10 people – 4</p></li>
+</ul>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>cancel_public_events</strong></td>
+<td>Integer</td>
+<td><p>Cancellation of public events.</p>
+<p>No measures - 0</p>
+<p>Recommended cancellations - 1</p>
+<p>Required cancellations – 2</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>workplace_closures</strong></td>
+<td>Integer</td>
+<td><p>Government policies on workplaces closures.</p>
+<p>No measures – 0</p>
+<p>Recommended - 1</p>
+<p>Required for some - 2</p>
+<p>Required for all but key workers – 3</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>school_closures</strong></td>
+<td>Integer</td>
+<td><p>Government policies on school closures.</p>
+<p>No measures - 0</p>
+<p>Recommended - 1</p>
+<p>Required (only at some levels) - 2</p>
+<p>Required (all levels) - 3</p>
+<p>Note that there may be sub-national or regional differences in policies on school closures. The policy categories shown may not apply at all sub-national levels. A country is coded as ‘required closures’ if at least some sub-national regions have required closures.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>debt_relief</strong></td>
+<td>Integer</td>
+<td><p>Governments provide debt or contract relief to citizens during the COVID-19 pandemic.</p>
+<p>No relief – 0</p>
+<p>Narrow relief – 1</p>
+<p>Broad relief – 2</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>income_support</strong></td>
+<td>Integer</td>
+<td><p>Governments provide income support to workers during the COVID-19 pandemic.</p>
+<p>No income support – 0</p>
+<p>Covers &lt;50% of lost salary – 1</p>
+<p>Covers &gt;50% of lost salary – 2</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>Holiday</strong></td>
+<td>Integer</td>
+<td><p>Number of holiday in the selected time period</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>temp</strong></td>
+<td>Float</td>
+<td><p>Average temperature in celsius of all stations in the selected time period.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>prcp</strong></td>
+<td>Float</td>
+<td><p>Average precipitation in Celsius of all stations in the selected time period</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>doctors_per_1000</strong></td>
+<td>Float</td>
+<td>Number of doctors per 1000 habitants last year recorded</td>
+</tr>
+<tr class="even">
+<td><strong>nurses_per_1000</strong></td>
+<td>Float</td>
+<td>Number of nurses per 1000 habitants last year recorded</td>
+</tr>
+<tr class="odd">
+<td><strong>beds_per_1000</strong></td>
+<td>Float</td>
+<td>Number of hospital beds per 1000 habitants last year recorded</td>
+</tr>
+<tr class="even">
+<td><strong>number_of_arrivals</strong></td>
+<td>Float</td>
+<td>Number of tourism arrivals last year recorded</td>
+</tr>
+<tr class="odd">
+<td><strong>urban_population</strong></td>
+<td>Float</td>
+<td>% of urban population last year recorded</td>
+</tr>
+<tr class="even">
+<td><strong>total_vaccinations_per_100</strong></td>
+<td>Float</td>
+<td><p>Share of the total population that received at least one vaccine dose. This may not equal the shares that are fully vaccinated if the vaccine requires two doses.</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>%youth_unemployment_total</strong></td>
+<td>Float</td>
+<td>% of youthment unemployment last year recorded</td>
+</tr>
+<tr class="even">
+<td><strong>life_expectancy</strong></td>
+<td>Float</td>
+<td>Average life expectancy at birth last year recorded</td>
+</tr>
+<tr class="odd">
+<td><strong>%df_population_gr_65</strong></td>
+<td>Float</td>
+<td>% of population with age 65 or higher last year recorded</td>
+</tr>
+<tr class="even">
+<td><strong>UN Population Division (Median Age) (2017)</strong></td>
+<td>Float</td>
+<td>Median age last year recorded</td>
+</tr>
+<tr class="odd">
+<td><strong>Excess mortality P-scores, all ages Prev 36 days</strong></td>
+<td>Float</td>
+<td><p>Excess mortality is a term used in epidemiology and public health that refers to the number of deaths from all causes during a crisis above and beyond what we would have expected to see under ‘normal’ conditions.</p>
+<p>P-score = 100* Deaths (2020-2021) - Avg.Deaths (2015-2019) / Avg.Deaths (2015-2019)</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-36<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>Excess mortality P-scores, all ages Prev 18 days</strong></td>
+<td>Float</td>
+<td><p>Excess mortality is a term used in epidemiology and public health that refers to the number of deaths from all causes during a crisis above and beyond what we would have expected to see under ‘normal’ conditions.</p>
+<p>P-score = 100* Deaths (2020-2021) - Avg.Deaths (2015-2019) / Avg.Deaths (2015-2019)</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Excess mortality P-scores, all ages Prev 7 days</strong></td>
+<td>Float</td>
+<td><p>Excess mortality is a term used in epidemiology and public health that refers to the number of deaths from all causes during a crisis above and beyond what we would have expected to see under ‘normal’ conditions.</p>
+<p>P-score = 100* Deaths (2020-2021) - Avg.Deaths (2015-2019) / Avg.Deaths</p>
+<p>(2015-2019)</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-7<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>Excess mortality P-scores, all ages</strong></td>
+<td>Float</td>
+<td><p>Excess mortality is a term used in epidemiology and public health that refers to the number of deaths from all causes during a crisis above and beyond what we would have expected to see under ‘normal’ conditions.</p>
+<p>P-score = 100* Deaths (2020-2021) - Avg.Deaths (2015-2019) / Avg.Deaths (2015-2019)</p>
+<p>In our dataset this value is calculated as the average in the selected week.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>average_deaths_2015_2019_all_ages</strong></td>
+<td>Float</td>
+<td>Average number of deaths in selected period for 2015-2019</td>
+</tr>
+<tr class="even">
+<td><strong>deaths_prev_7</strong></td>
+<td>Float</td>
+<td><p>Raw number of deaths 7 days prior to selected period</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-7<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>deaths_prev_18</strong></td>
+<td>Float</td>
+<td><p>Raw number of deaths 18 days prior to selected period</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-18<sup>th</sup> day.</p></td>
+</tr>
+<tr class="even">
+<td><strong>deaths_prev_36</strong></td>
+<td>Float</td>
+<td><p>Raw number of deaths 36 days prior to selected period</p>
+<p>In our dataset this value is calculated as the average in the selected week. For each day we retrieve the value of this same feature in the n-36<sup>th</sup> day.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>deaths</strong></td>
+<td>Float</td>
+<td><p>Raw number of deaths selected period</p>
+<p>In our dataset this value is calculated as the average in the selected week.</p></td>
+</tr>
+<tr class="even">
+<td><strong>accumulated</strong></td>
+<td>Float</td>
+<td>Accumulated percentage of deaths.</td>
+</tr>
+<tr class="odd">
+<td><strong>R0</strong></td>
+<td>Float</td>
+<td></td>
+</tr>
+</tbody>
+</table>
