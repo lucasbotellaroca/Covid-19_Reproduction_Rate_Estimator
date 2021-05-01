@@ -1,6 +1,6 @@
 # Death Forecast Model Based on Political Decisions COVID-19
 
-## 1. Project statement and Approach
+## 1. Project Statement and Approach
 
 The intention of the presented project is to explain how restrictions,
 mobility trends, temperature, demographic and special characteristics of
@@ -77,8 +77,6 @@ Data has been gathered form different sources:
 
     -   <https://ourworldindata.org/urbanization>
 
-    -   
-
 -   World Bank of Data
 
     -   https://data.worldbank.org/indicator/SH.MED.NUMW.P3
@@ -92,6 +90,10 @@ Data has been gathered form different sources:
 
     -   https://www.noaa.gov/
 
+Below there is a diagram of how data was retrieved and transformed into the final dataset:
+![Untitled Diagram](https://user-images.githubusercontent.com/71489078/116786549-87374380-aa9f-11eb-856b-a8d59816ad75.jpg)
+
+The final table with detailed field description and type can be found below:
 <table>
 <thead>
 <tr class="header">
