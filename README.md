@@ -17,14 +17,14 @@ In general terms, as mentioned, R0 tells you in average how many
 infections may be caused by one infected individual, this of course is
 related with the restrictions applied by governments.
 
--   If R0 &lt; 1 one infected person will cause less than one infection.
+-   If **R0 &lt; 1** one infected person will cause less than one infection.
     In this case the disease will eventually die out.
 
--   If R0 &gt; 1 one infected person will cause more than one infection.
+-   If **R0 &gt; 1** one infected person will cause more than one infection.
     In this case the disease will increase and eventually cause an
     outbreak or pandemic.
 
--   If R0 = 1 one infected person will cause one infection. In this case
+-   If **R0 = 1** one infected person will cause one infection. In this case
     the disease will still be transmitted and there is a risk of
     outbreak or pandemic.
 
