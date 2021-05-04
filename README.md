@@ -18,9 +18,11 @@ The standard SIR model in discrete times describes the reproduction rate of a vi
 Note the difference between Rt which we refer as effective reproduction number and Rt which we refer to as recovered individuals in time t.
 
 Let´s note that N = St + It + Rt. The original SIR problem is stated as shown below:
+
  ![image](https://user-images.githubusercontent.com/71489078/116992856-f77bda00-acd6-11eb-8a83-fe1ce3cea2bb.png)
 
 To simplify things, R0 is defined as for whatever defined time period as R0=β/γ. Rt is defined as shown in the equation below. It is referred to as the number of individuals infected in time t.
+
 ![image](https://user-images.githubusercontent.com/71489078/116992886-ffd41500-acd6-11eb-9ece-d9721de260d4.png)
  
 Rt therefore is a value that measures how the virus is increasing or decreasing in time. For our specific problem we will not try to exactly replicate this idea, but our dataset structure will be based on the equation system shown above. Key points taken from this model is that Rt is dependent of infections in the time period defined t, accumulated infections or recovered Rt, and for our specific case the restrictions applied. If all infected individuals were isolated from the rest of the population for γ time, then the disease would disappear.
