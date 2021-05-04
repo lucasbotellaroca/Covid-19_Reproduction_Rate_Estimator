@@ -2,63 +2,44 @@
 
 ## 1. Project Statement and Approach
 
-The intention of the presented project is to explain how restrictions,
-mobility trends, temperature, demographic and special characteristics of
-each region affect the spread of Covid-19. In order to achieve this, we
-will try to predict the reproduction number (R0) for each week. R0 tells
-you the average number of people who will contract a contagious disease
-from one person with that disease. It specifically applies to a
-population of people who were previously free of infection and haven’t
-been vaccinated, however for our specific case of study we will take
-into account people that have been vaccinated or that have contracted
-the disease in order to make our predictions more precise.
+The intention of the presented project is to explain and understand how restrictions, mobility trends, temperature, demographic and special characteristics of each region affect the spread of Covid-19. In order to achieve this, we will try to predict the reproduction number for each week. We will refer to effective reproduction number or reproduction rate as Rt. Rt tells you the average number of people who will contract a contagious disease from one person with that disease. The basic reproduction number or R0 specifically applies to a population of people who were previously free of infection and haven’t been vaccinated, however for our specific case of study we will take into account people that have been vaccinated or that have contracted the disease in order to make our predictions more precise, therefore predicting Rt.
 
-In general terms, as mentioned, R0 tells you in average how many
-infections may be caused by one infected individual, this of course is
-related with the restrictions applied by governments.
+In general terms, as mentioned, Rt tells you in average how many infections may be caused by one infected individual, this of course is related with mobility trends, restrictions applied by governments and many other factors. 
 
--   If **R0 &lt; 1** one infected person will cause less than one infection.
-    In this case the disease will eventually die out.
+•	If Rt < 1 one infected person will cause less than one infection. In this case the disease will eventually die out.
+•	If Rt > 1 one infected person will cause more than one infection. In this case the disease will increase and eventually cause an outbreak or pandemic.
+•	If Rt = 1 one infected person will cause one infection. In this case the disease will still be transmitted and there is a risk of outbreak or pandemic.
 
--   If **R0 &gt; 1** one infected person will cause more than one infection.
-    In this case the disease will increase and eventually cause an
-    outbreak or pandemic.
+Coronavirus data specially cases and deaths reported by governments are not very trustworthy, especially in the toughest times of the epidemic. Taking this into account our proxy variable to detect possible infections will be the excess mortality recorded. Excess mortality is a measure of the excess number of deaths recorded in 2020 and 2021 in relation with previous years by week, such difference will of course, indicate us, the number of deaths caused by coronavirus disease, making the assumption that there are no other causes that may cause an excess of deaths.
 
--   If **R0 = 1** one infected person will cause one infection. In this case
-    the disease will still be transmitted and there is a risk of
-    outbreak or pandemic.
+Our approach for the presented problem is based on SIR model which is a standard used in epidemiology for a disease spread in the population. 
 
-Coronavirus data specially cases and deaths reported by governments are
-not very trustworthy, especially in the toughest times of the epidemic.
-Taking this into account our proxy variable to detect possible
-infections will be the excess mortality recorded. Excess mortality is a
-measure of the excess number of deaths recorded in 2020 and 2021 in
-relation with previous years by week, such difference will of course,
-indicate us, the number of deaths caused by coronavirus disease, making
-the assumption that there are no other causes that may cause an excess
-of deaths.
+The standard SIR model in discrete times describes the reproduction rate of a virus based on three components referred as: susceptible (St), infected (It), and recovered (Rt) in time t. βt is the transmission rate, and γt is the transition rate from infected to recovered in time t
+Note the difference between Rt which we refer as effective reproduction number and Rt which we refer to as recovered individuals in time t.
 
-As mentioned, excess mortality data is unfortunately retrieved weekly,
-which in the end makes our dataset smaller and more aggregated which may
-affect the results. It has been recorded that the average time between a
-person contracting the virus and dying is 18.5 days, therefore, in our
-dataset, we will associate restrictions of n-18 days with the deaths
-occurred in day 18, in other words, the restrictions applied that day
-allowed a number of x deaths 18 days later.
+Let´s note that N  St + It + Rt. The original SIR problem is stated as shown below:
+ 
 
-Excess mortality is recorded weekly on Sundays, and that value is the
-sum of deaths in the deferred week. What we will do is take the average
-value of restrictions, mobility trends and other features (detailed in
-table Features used for the Analysis) associated to days of the referred
-week. In the calendar below there is a scheme for better understanding:
-
-![Screenshot 2021-05-01 at 10 02 00](https://user-images.githubusercontent.com/71489078/116775621-479f3600-aa64-11eb-8ae7-20bca77bccc3.png)
+To simplify things, R0 is defined as for whatever defined time period as R0=β/γ. Rt is defined as shown in the equation below. It is referred to as the number of individuals infected in time t.
+ 
+Rt therefore is a value that measures how the virus is increasing or decreasing in time. For our specific problem we will not try to exactly replicate this idea, but our dataset structure will be based on the equation system shown above. Key points taken from this model is that Rt is dependent of infections in the time period defined t, accumulated infections or recovered Rt, and for our specific case the restrictions applied. If all infected individuals were isolated from the rest of the population for γ time, then the disease would disappear.
 
 
-As seen day 22 of the referred month contains the tag “1” since it is
-related with day “5” of the referred month. Every entry of our dataset
-will contain the average value of restriction/mobility/other of days
-\[1,7\] of the days marked in grey.
+Excess mortality is recorded weekly on Sundays, and that value is the sum of deaths in the deferred week. In this project we will take excess mortality as an indicator or proxy variable of both accumulated and recovered individuals together with infected individuals. Accumulated will be the sum of excess mortality in time t, such value is calculated by summing deaths for every country until time n. And infections will be estimated as the excess mortality recorded in day n+18. It has been recorded that the average time between a person contracting the virus and dying is 18 days (Verity et al., 2020).
+
+As mentioned, excess mortality data is unfortunately retrieved weekly, hence, every entry in our dataset will be a week estimate of value Rt, which in the end makes our dataset smaller and more aggregated which may affect the results. 
+
+Therefore, our problem is stated as shown below:
+
+Restrictions = Restrictions applied by governments in week n.
+Mobility Trend = Mobility trends provide by Google.
+Others = Demographic and other variables unique for each country that may affect the spread of the disease.
+Recovered = Accumulated excess deaths to week n.
+Infected = Excess deaths in next 18 days.
+
+Fweek n (Restrictions, Mobility Trends, Others, Recovered, Infected) = Rtweek n
+
+Once the problem has been stated and what the approach will be for this project will firstly detail our sources of data, features, range of values and description.
 
 ## 2. Data Explanation and Preparation
 Once the problem has been stated and what the approach will be for this
