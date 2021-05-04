@@ -17,10 +17,11 @@ Our approach for the presented problem is based on SIR model which is a standard
 The standard SIR model in discrete times describes the reproduction rate of a virus based on three components referred as: susceptible (St), infected (It), and recovered (Rt) in time t. βt is the transmission rate, and γt is the transition rate from infected to recovered in time t
 Note the difference between Rt which we refer as effective reproduction number and Rt which we refer to as recovered individuals in time t.
 
-Let´s note that N  St + It + Rt. The original SIR problem is stated as shown below:
- 
+Let´s note that N = St + It + Rt. The original SIR problem is stated as shown below:
+ ![image](https://user-images.githubusercontent.com/71489078/116992856-f77bda00-acd6-11eb-8a83-fe1ce3cea2bb.png)
 
 To simplify things, R0 is defined as for whatever defined time period as R0=β/γ. Rt is defined as shown in the equation below. It is referred to as the number of individuals infected in time t.
+![image](https://user-images.githubusercontent.com/71489078/116992886-ffd41500-acd6-11eb-9ece-d9721de260d4.png)
  
 Rt therefore is a value that measures how the virus is increasing or decreasing in time. For our specific problem we will not try to exactly replicate this idea, but our dataset structure will be based on the equation system shown above. Key points taken from this model is that Rt is dependent of infections in the time period defined t, accumulated infections or recovered Rt, and for our specific case the restrictions applied. If all infected individuals were isolated from the rest of the population for γ time, then the disease would disappear.
 
@@ -37,7 +38,7 @@ Others = Demographic and other variables unique for each country that may affect
 Recovered = Accumulated excess deaths to week n.
 Infected = Excess deaths in next 18 days.
 
-Fweek n (Restrictions, Mobility Trends, Others, Recovered, Infected) = Rtweek n
+![Screenshot 2021-05-04 at 12 48 49](https://user-images.githubusercontent.com/71489078/116992935-137f7b80-acd7-11eb-80a9-7e550d15774c.png)
 
 Once the problem has been stated and what the approach will be for this project will firstly detail our sources of data, features, range of values and description.
 
