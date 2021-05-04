@@ -1,4 +1,4 @@
-# Death Forecast Model Based on Political Decisions COVID-19
+# Forecast Model Based on Political Decisions COVID-19
 
 ## 1. Project Statement and Approach
 
