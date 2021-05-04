@@ -7,7 +7,9 @@ The intention of the presented project is to explain and understand how restrict
 In general terms, as mentioned, Rt tells you in average how many infections may be caused by one infected individual, this of course is related with mobility trends, restrictions applied by governments and many other factors. 
 
 •	If Rt < 1 one infected person will cause less than one infection. In this case the disease will eventually die out.
+
 •	If Rt > 1 one infected person will cause more than one infection. In this case the disease will increase and eventually cause an outbreak or pandemic.
+
 •	If Rt = 1 one infected person will cause one infection. In this case the disease will still be transmitted and there is a risk of outbreak or pandemic.
 
 Coronavirus data specially cases and deaths reported by governments are not very trustworthy, especially in the toughest times of the epidemic. Taking this into account our proxy variable to detect possible infections will be the excess mortality recorded. Excess mortality is a measure of the excess number of deaths recorded in 2020 and 2021 in relation with previous years by week, such difference will of course, indicate us, the number of deaths caused by coronavirus disease, making the assumption that there are no other causes that may cause an excess of deaths.
