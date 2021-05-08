@@ -1,5 +1,5 @@
 # Forecast Model Based on Political Decisions COVID-19
-![Screenshot 2021-05-08 at 10 43 31](https://user-images.githubusercontent.com/71489078/117532947-3cab4f00-afea-11eb-9390-1e3b862c1b67.png)
+![Screenshot 2021-05-08 at 11 15 02](https://user-images.githubusercontent.com/71489078/117533711-a3cb0280-afee-11eb-904f-1439b551665b.png)
 
 ## 1. Project Statement and Approach
 
