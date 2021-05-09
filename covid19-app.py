@@ -6,7 +6,7 @@ import shap
 import streamlit.components.v1 as components
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-st.image('https://i.ibb.co/crCVSHp/Screenshot-2021-05-08-at-10-43-19.png')
+st.image('https://i.ibb.co/db33gwN/Screenshot-2021-05-09-at-11-15-13.png')
 
 # Title
 st.title('Covid-19 Forecast App')
