@@ -1,2 +1,2 @@
-# Forecast Model Based on Political Decisions COVID-19
-![Screenshot 2021-05-08 at 11 16 13](https://user-images.githubusercontent.com/71489078/117533743-ceb55680-afee-11eb-90e0-d016675b808a.png)
+# Covid-19 Reproduction Rate Estimator
+![Screenshot 2021-05-10 at 20 31 23](https://user-images.githubusercontent.com/71489078/117707297-b308a680-b1ce-11eb-821a-927ee63b266a.png)
