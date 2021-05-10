@@ -25,8 +25,10 @@ This notebook collects different datasets, each corresponding to
 ##### Data Modelling and Evaluation
 * [03_data_model_evaluation.ipynb](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/03_data_model_evaluation.ipynb)
 * [04_data_model_shap_values_eval.ipynb](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/04_data_model_shap_values_eval.ipynb)
-##### Streamlit application
+## Streamlit application
 * [covid19-app.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app.py)
+
+![Screenshot 2021-05-10 at 23 17 51](https://user-images.githubusercontent.com/71489078/117725777-f28ebd00-b1e5-11eb-9c63-978b197be3f8.png)
 
 ## Requirements
 
