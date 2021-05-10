@@ -28,9 +28,15 @@ This notebook collects different datasets, each corresponding to
 ## Streamlit application
 * [covid19-app.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app.py)
 
+To run the app, place the file covid19-app.py in same folder as the model file contained in this repo model_lgbm_reg and execute from command line:
+
+```streamlit run covid19-app.py```
+
+
+
 ![Screenshot 2021-05-10 at 23 17 51](https://user-images.githubusercontent.com/71489078/117725777-f28ebd00-b1e5-11eb-9c63-978b197be3f8.png)
 
 ## Requirements
 
-* To access files it is required to have access to my Google Cloud Project, if not conceeded please contact me at lucasbotellaroca@gmail.com
-* All libraries contained in 
+* To be able to execute notebooks it is required to have access to my Google Cloud Platform Project, if not conceeded please contact me at lucasbotellaroca@gmail.com
+* All libraries necessary to run this project are listed in file [requirements.txt](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/requirements.txt)
