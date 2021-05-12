@@ -10,29 +10,29 @@ st.image('https://i.ibb.co/BLDbLqh/Screenshot-2021-05-10-at-18-39-00.png')
 
 # Title
 st.title('Covid-19 Reproduction Rate Estimator')
-st.text('Check how Covid-19 spreads weekly based on features. Most influential features appear above.')
+st.text('Check how Covid-19 spreads every two weeks based on features. Most influential features appear above.')
 
 
 show_info = st.checkbox('Show Fields Description')
 if show_info:
 
-    st.subheader('Fields Description (Mean of week)')
-    st.markdown('**Infections**: An indicator of the level of virality in the current week')
+    st.subheader('Fields Description (Mean of 2 weeks)')
+    st.markdown('**Infections**: An indicator of the level of virality in the current week.')
     st.markdown('**Accumulated cases**: Indicator of excess deaths up to date, indicator of population inmunity')
     st.markdown('**Mobility Index**: Refers to the increase or decrease of visitors in retail and recreation, transit stations, grocery, pharmacy and workplaces.')
     st.markdown('**Economic Measures**: Governments support to debt relief and income support.')
     st.markdown('**Residential**: Refers to the increase or decrease time spent at home.')
-    st.markdown('**Temperature**: Temperature in celsius')
+    st.markdown('**Temperature**: Temperature in celsius.')
     st.markdown('**Closure Measures**: Governments closure of workplaces, school and cancelation of public events.')
-    st.markdown('**Awareness Measures**: Governments action on facial coverings and publicinformation campaigns')
-    st.markdown('**Number of arrivals**: Tourism arrivals average (2015-2019)')
-    st.markdown('**Youth Unemployment**: Percentaje of youth unemployment')
-    st.markdown('**Urban Population**: Percentaje of the population that lives in urban areas')
-    st.markdown('**Health Measures**: Governments action on contact tracing and testing policy')
-    st.markdown('**Precipitation**: Precipitation in mm/h')
-    st.markdown('**Mobility Measures**: Governments action on limiting mobility')
-    st.markdown('**Vaccinations**: Number of vaccine doses administered per 100 people')
-    st.markdown('**Holiday**: Number of holidays in the past week')
+    st.markdown('**Awareness Measures**: Governments action on facial coverings and publicinformation campaigns.')
+    st.markdown('**Number of arrivals**: Tourism arrivals average (2015-2019).')
+    st.markdown('**Youth Unemployment**: Percentaje of youth unemployment.')
+    st.markdown('**Urban Population**: Percentaje of the population that lives in urban areas.')
+    st.markdown('**Health Measures**: Governments action on contact tracing and testing policy.')
+    st.markdown('**Precipitation**: Precipitation in mm/h.')
+    st.markdown('**Mobility and Closures Measures**: Governments action on limiting mobility and closing workplaces and schools.')
+    st.markdown('**Vaccinations**: Number of vaccine doses administered per 100 people.')
+    st.markdown('**Holiday**: Number of holidays in the past week.')
 	
 st.sidebar.header('Specify Input Parameters')
 
@@ -43,24 +43,22 @@ def user_input_features():
     economic_measures = st.sidebar.slider('Economic Measures',0, 2, 1)
     residential = st.sidebar.slider('Residential', -8, 39, 10)
     temp = st.sidebar.slider('Temperature', -19, 36, 15)
-    closure_measures = st.sidebar.slider('Closure Measures',0, 4, 2)
     awareness_measures = st.sidebar.slider('Awareness Measures', 0, 4, 2)
     number_of_arrivals = st.sidebar.slider('Number of arrivals', 121000, 82570000, 13284934)
-    youth_unemployment = st.sidebar.slider('Youth Unemployment',0, 35, 10)
     urban_population = st.sidebar.slider('Urban Population', 30, 100, 72)
+    mobility_closures_measures = st.sidebar.slider('Mobility and Closures Measures', 0, 6, 2)
+    youth_unemployment = st.sidebar.slider('Youth Unemployment',0, 35, 10)
     health_measures = st.sidebar.slider('Health Measures', 0, 3, 2)
     prcp = st.sidebar.slider('Precipitation', 0, 2, 0)
-    mobility_measures = st.sidebar.slider('Mobility Measures', 0, 4, 2)
-    total_vaccinations_per_100 = st.sidebar.slider('Total Vaccinations per 100',0, 200, 0)
     holiday = st.sidebar.slider('Holiday', 0, 7, 0)
+    total_vaccinations_per_100 = st.sidebar.slider('Total Vaccinations per 100',0, 200, 0)
  
     data = {'mobility_index': mobility_index,
             'residential': residential,
             'awareness_measures': awareness_measures,
             'health_measures': health_measures,
-            'mobility_measures': mobility_measures,
+            'mobility_closures_measures': mobility_closures_measures,
             'economic_measures': economic_measures,
-            'closure_measures': closure_measures,
             'holiday': holiday,
             'temp': temp,
             'prcp': prcp,
