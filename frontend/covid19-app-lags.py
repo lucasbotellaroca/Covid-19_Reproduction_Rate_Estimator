@@ -15,9 +15,16 @@ st.text('Check how Covid-19 spreads based on features (2 weeks time period)')
 
 show_info = st.checkbox('Show Fields Description')
 if show_info:
-	st.subheader('Fields Description (Mean of week)')
-	st.markdown('**Mobility Index**: Refers to the increase or decrease of visitors in retail and recreation, transit stations, grocery, pharmacy and workplaces.')
-	st.markdown('**Residential**: Refers to the increase or decrease time spent at home.')
+	st.subheader('Fields Description (Mean of 2 weeks)')
+    st.markdown('**Reproduction Rate Week n-2**: Reproduction rate of week n-2')
+    st.markdown('**Stay home requirements.**: Stay home requirements. No measures - 0, Recommended not to leave the house - 1, Required to not leave the house with exceptions for daily exercise, grocery shopping, and ‘essential’ trips - 2, Required to not leave the house with minimal exceptions (e.g. allowed to leave only once every few days, or only one person can leave at a time, etc.) – 3')
+    st.markdown('**Restrictions in gatherings**: No restrictions - 0, Restrictions on very large gatherings (the limit is above 1000 people) - 1, Restrictions on gatherings between 100 to 1000 people - 2,  Restrictions on gatherings between 10 to 100 people - 3, Restrictions on gatherings of less than 10 people – 4')
+    st.markdown('**Restrictions in internal movements**: No restrictions - 0, Recommend movement restriction - 1, Restrict movement – 2')
+    st.markdown('**International travel controls**: No restrictions - 0, No measures - 0, Screening - 1, Quarantine from high-risk regions - 2, Ban on high-risk regions - 3, Total border closure – 4')
+    st.markdown('**Close public transport**: No restrictions - 0, Recommended closing (or reduce volume) - 1, Required closing (or prohibit most using it) – 2')
+    st.markdown('**Cancel public events**: No restrictions - 0, Recommended cancellations - 1, Required cancellations – 2')
+    st.markdown('**Workplace closure**: No restrictions - 0, Recommended - 1, Required for some - 2, Required for all but key workers – 3')
+    st.markdown('**School closures**: No restrictions - 0, Recommended - 1, Required (only at some levels) - 2, Required (all levels) - 3')
 	st.markdown('**Infections**: An indicator of the level of virality in the current week (0. None, 5. Low, 10. Medium, 15. High, 20-25. Very High)')
 	st.markdown('**Accumulated cases**: Indicator of excess deaths up to date, indicator of population inmunity (0. None, 1-3. Low, 3-5. Medium, 5-7. High, 8-10. Very High)')
 	st.markdown('**Economic Measures**: Governments support to debt relief and income support. (0. None, 1. Low, 2. Medium, 3. High)')
@@ -34,8 +41,17 @@ if show_info:
 st.sidebar.header('Specify Input Parameters')
 
 def user_input_features():
+
     reproduction_rate_week_n2 = st.sidebar.number_input('Reproduction Rate Week n-2', min_value=0.0, max_value=4.5, step=0.1, value=1.0)
-    mobility_closures_measures = st.sidebar.slider('Mobility Closure Measures',0, 6, 1)
+    mobility_closures_measures = st.sidebar.slider('Mobility closure measures',0, 6, 1)
+    stay_home_requirements = st.sidebar.slider('Stay home requirements',0, 6, 1)
+    restriction_gatherings = st.sidebar.slider('Restrictions in gatherings',0, 6, 1)
+    restrictions_internal_movements = st.sidebar.slider('Restrictions in internal movements',0, 6, 1)
+    international_travel_controls = st.sidebar.slider('International travel controls',0, 6, 1)
+    close_public_transport = st.sidebar.slider('Close public transport',0, 6, 1)
+    cancel_public_events = st.sidebar.slider('Cancel public events',0, 6, 1)
+    workplace_closures = st.sidebar.slider('Workplace closures',0, 6, 1)
+    school_closures = st.sidebar.slider('School closures',0, 6, 1)
     accumulated = st.sidebar.slider('Accumulated', 0, 10, 3)
     temp = st.sidebar.slider('Temperature', -26, 40, 15)
     infections_value = st.sidebar.slider('Infections', 0, 25, 4)
@@ -52,7 +68,14 @@ def user_input_features():
     data = {
             'awareness_measures': awareness_measures,
             'health_measures': health_measures,
-            'mobility_closures_measures': mobility_closures_measures,
+            'mobility_closures_measures': 0.3*stay_home_requirements
+                                + 0.3*restriction_gatherings\
+                                + 0.2*restrictions_internal_movements\
+                                + 0.1*international_travel_controls\
+                                + 0.1*close_public_transport\
+                                + 0.2*cancel_public_events\
+                                + 0.4*workplace_closures\
+                                + 0.4*school_closures,\
             'economic_measures': economic_measures,
             'holiday': holiday,
             'temp': temp,
@@ -75,7 +98,7 @@ def st_shap(plot, height=None):
     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
     components.html(shap_html, height=height)
 
-pickle_file = './model_lgbm_reg_lagged'
+pickle_file = '../models/model_lgbm_reg_lagged'
 if st.sidebar.button('Calculate Estimated Reproduction Rate'):
     st.subheader('Specified Input parameters')
     st.write(s)

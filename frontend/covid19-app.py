@@ -79,7 +79,7 @@ def st_shap(plot, height=None):
     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
     components.html(shap_html, height=height)
 
-pickle_file = './model_lgbm_reg'
+pickle_file = '../models/model_lgbm_reg'
 if st.sidebar.button('Calculate Estimated Reproduction Rate'):
 	st.subheader('Specified Input parameters')
 	st.write(s)
