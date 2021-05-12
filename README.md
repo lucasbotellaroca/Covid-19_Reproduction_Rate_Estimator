@@ -31,10 +31,14 @@ In order to achieve this, we will try to predict the **reproduction rate number*
 ## Streamlit application
 * [covid19-app.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app.py)
 
-To run the app, place the file covid19-app.py in same folder as the model file contained in this repo "model_lgbm_reg" and execute from command line:
+To run the app execute from command line:
 
+```cd frontend/streamlit```
 ```streamlit run covid19-app.py```
 
+
+```cd frontend/streamlit```
+```streamlit run covid19-app-lags.py```
 
 ![Screenshot 2021-05-10 at 23 17 51](https://user-images.githubusercontent.com/71489078/117725777-f28ebd00-b1e5-11eb-9c63-978b197be3f8.png)
 
