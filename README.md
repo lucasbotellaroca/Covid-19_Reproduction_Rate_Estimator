@@ -15,20 +15,34 @@ In order to achieve this, we will try to predict the **reproduction rate number*
 
 ## Notebooks
 
-#### Data Gathering and Preparation
-* [00_weather_data.ipynb](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/00_weather_data.ipynb) - Invokes NOAA Weather Data database using Google Big Query. Matches stations latitude and longitude with country codes using Google Maps API. Generates complete weather_data.csv file containing information of temperature and precipitation for all countries in 2020.
-* [01_data_preparation.ipynb](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/01_data_preparation.ipynb) - Collects and processes different files, each corresponding to restrictions, mobility indexes, excess mortality, weather data, tourism, urban population and youth unemployment. All data is processed and merged, generation of artifical variables and final dataset for processing and analysis.
-#### Exploratory Data Analysis
-* [02_data_exploration.ipynb](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/02_data_exploration.ipynb)  - Exploration and first analysis of features included in our dataset. 
-#### Data Modelling and Evaluation
-* [03_data_model_evaluation.ipynb](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/03_data_model_evaluation.ipynb) - Modelling and evaluation over approaches and models selected.
-  * Three different data configuration approaches.
+### Data Gathering and Preparation
+* [00_weather_data.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/00_weather_data.ipynb) - Invokes NOAA Weather Data database using Google Big Query. Matches stations latitude and longitude with country codes using Google Maps API. Generates complete weather_data.csv file containing information of temperature and precipitation for all countries in 2020.
+* [01_data_preparation.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/01_data_preparation.ipynb) - Collects and processes different files, each corresponding to restrictions, mobility indexes, excess mortality, weather data, tourism, urban population and youth unemployment. All data is processed and merged, generation of artifical variables and final dataset for processing and analysis.
+### Exploratory Data Analysis
+* [02_data_exploration.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/02_data_exploration.ipynb)  - Exploration and first analysis of features included in our dataset. 
+### Data Modelling and Evaluation
+
+Modelling and evaluation over approaches and models selected using two methodologies.
+  * **Methodologies**
+    1. Model 1: No Lag Methodology
+    2. Model 2: Lag Methodology
+    
+  * **Three different data configuration approaches**
     1. Raw data.
     2. Feature Engineering grouping variables.
     3. Principal Component Analysis.
-  * Models: XGB Regressor, LGBM Regressor, Gradient Boosting Regressor, KNN Regressor, Histogram Boosting Regressor, NuSVR Regressor.
-* [04_data_model_shap_values_eval.ipynb](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/04_data_model_shap_values_eval.ipynb) - Shap values analysis over best model and approach.
-## Streamlit application
+    
+  * **Models:** XGB Regressor, LGBM Regressor, Gradient Boosting Regressor, KNN Regressor, Histogram Boosting Regressor, NuSVR Regressor.
+
+#### Model 1: No Lag Methodology, feature explanatory
+* [03_data_model_evaluation.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation.ipynb) - Modelling and evaluation of selected aproaches and models.
+* [04_data_model_shap_values_eval.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval.ipynb) - SHAP values analysis over best model and approach.
+
+#### Model 2: Lag Methodology
+* [03_data_model_evaluation.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation_lags.ipynb) - Modelling and evaluation of selected aproaches and models.
+* [04_data_model_shap_values_eval.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval_lags.ipynb) - SHAP values analysis over best model and approach.
+
+## Streamlit applications
 * [covid19-app.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app.py)
 
 To run the app execute from command line:
