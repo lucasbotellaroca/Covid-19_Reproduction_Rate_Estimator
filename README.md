@@ -65,7 +65,7 @@ To run apps execute from command line:
 
 
 ![Screenshot 2021-05-13 at 08 52 08](https://user-images.githubusercontent.com/71489078/118089335-815b2f80-b3c8-11eb-848f-19665f385c9d.png)
-The following image refers to [covid19-app-lags.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app-lags.py)
+The image shown refers to [covid19-app-lags.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app-lags.py)
 
 ## Requirements
 
