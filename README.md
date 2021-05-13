@@ -3,6 +3,13 @@
 
 The following summary is to serve as reference and how to navigate through this repository. In order to find in detail documentation of this project please refer to document [memory.pdf](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/memory.pdf) found in this repository. 
 
+The presented repository consists of the following folder and documents:
+* [frontend](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/tree/main/frontend) - Contains applications developed.
+* [models](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/tree/main/models) - Stored models generated using pickle.
+* [notebooks](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/tree/main/notebooks) - Jupyter Notebooks for data preparation, analysis and evaluation.
+* [memory.pdf](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/memory.pdf) - Full documentation and project description.
+* [requirements.txt](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/requirements.txt) - Necessary libraries to run the code.
+
 ## Objective
 
 The intention of the presented project is to estimate and understand how **restrictions, mobility trends, temperature, demographic and special characteristics of each country** affect the spread of Covid-19. Features included in the analysis can be grouped in different **category definitions** as shown below for better understanding.
@@ -39,24 +46,27 @@ Modelling and evaluation over approaches and models selected using two methodolo
 * [04_data_model_shap_values_eval.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval.ipynb) - SHAP values analysis over best model and approach.
 
 #### Model 2: Lag Methodology
-* [03_data_model_evaluation.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation_lags.ipynb) - Modelling and evaluation of selected aproaches and models.
-* [04_data_model_shap_values_eval.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval_lags.ipynb) - SHAP values analysis over best model and approach.
+* [03_data_model_evaluation_lags.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation_lags.ipynb) - Modelling and evaluation of selected aproaches and models.
+* [04_data_model_shap_values_eval_lags.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval_lags.ipynb) - SHAP values analysis over best model and approach.
 
 ## Streamlit applications
-* [covid19-app.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app.py)
+Two applications for two models presented have been developed:
 
-To run the app execute from command line:
+* [covid19-app.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app.py)
+* [covid19-app-lags.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app-lags.py)
+
+To run apps execute from command line:
 
 ```cd frontend/streamlit```
 ```streamlit run covid19-app.py```
 
-
 ```cd frontend/streamlit```
 ```streamlit run covid19-app-lags.py```
 
+** The following image refers to covid-19-app-lags.py
 ![Screenshot 2021-05-13 at 08 52 08](https://user-images.githubusercontent.com/71489078/118089335-815b2f80-b3c8-11eb-848f-19665f385c9d.png)
 
 ## Requirements
 
-* To be able to execute notebooks it is required to have access to my Google Cloud Platform Project, if not conceded please contact me at lucasbotellaroca@gmail.com
+* To be able to execute notebooks it is required to have access to my Google Cloud Platform Project and a clients_secrets.json files, if not already conceded please contact me at lucasbotellaroca@gmail.com
 * All libraries necessary to run this project are listed in file [requirements.txt](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/requirements.txt).
