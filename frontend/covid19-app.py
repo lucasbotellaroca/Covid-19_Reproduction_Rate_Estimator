@@ -10,7 +10,7 @@ st.image('https://i.ibb.co/BLDbLqh/Screenshot-2021-05-10-at-18-39-00.png')
 
 # Title
 st.title('Covid-19 Reproduction Rate Estimator')
-st.text('Check how Covid-19 spreads every two weeks based on features. Most influential features appear above.')
+st.text('Check how Covid-19 spreads every week based on features. Most influential features appear above.')
 
 
 show_info = st.checkbox('Show Fields Description')

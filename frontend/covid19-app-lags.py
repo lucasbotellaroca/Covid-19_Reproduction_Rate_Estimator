@@ -94,7 +94,7 @@ def st_shap(plot, height=None):
     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
     components.html(shap_html, height=height)
 
-pickle_file = '../models/model_lgbm_reg_lagged'
+pickle_file = '../models/model_lgbm_reg_lags'
 if st.sidebar.button('Calculate Estimated Reproduction Rate'):
     st.subheader('Specified Input parameters')
     st.text('Restrictions are grouped as \'mobility_closures_measures\' in the charts shown')
