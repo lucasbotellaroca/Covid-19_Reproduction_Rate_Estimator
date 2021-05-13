@@ -24,7 +24,6 @@ if show_info:
     st.markdown('**Cancel public events**: No restrictions - 0, Recommended cancellations - 1, Required cancellations – 2')
     st.markdown('**Workplace closure**: No restrictions - 0, Recommended - 1, Required for some - 2, Required for all but key workers – 3')
     st.markdown('**School closures**: No restrictions - 0, Recommended - 1, Required (only at some levels) - 2, Required (all levels) - 3')
-    st.markdown('**Infections**: An indicator of the level of virality in the current week (0. None, 5. Low, 10. Medium, 15. High, 20-25. Very High)')
     st.markdown('**Accumulated cases**: Indicator of excess deaths up to date, indicator of population inmunity (0. None, 1-3. Low, 3-5. Medium, 5-7. High, 8-10. Very High)')
     st.markdown('**Economic Measures**: Governments support to debt relief and income support. (0. None, 1. Low, 2. Medium, 3. High)')
     st.markdown('**Closure Measures**: Governments closure of workplaces, school and cancelation of public events. (0. None, 1. Low, 2. Medium, 3. High)')
@@ -53,7 +52,6 @@ def user_input_features():
     school_closures = st.sidebar.slider('School closures',0, 3, 1)
     accumulated = st.sidebar.slider('Accumulated', 0, 10, 3)
     temp = st.sidebar.slider('Temperature', -26, 40, 15)
-    infections_value = st.sidebar.slider('Infections', 0, 25, 4)
     prcp = st.sidebar.slider('Precipitation', 0, 2, 0)
     economic_measures = st.sidebar.slider('Economic Measures',0, 3, 1)
     awareness_measures = st.sidebar.slider('Awareness Measures',0, 3, 1)
@@ -83,7 +81,6 @@ def user_input_features():
             'urban_population': urban_population,
             'total_vaccinations_per_100': total_vaccinations_per_100,
             'youth_unemployment':youth_unemployment,
-            'infections_value': infections_value,
             'accumulated': accumulated/100,
             'reproduction_rate_week_n-2': reproduction_rate_week_n2}
     features = pd.DataFrame(data, index=[0])
