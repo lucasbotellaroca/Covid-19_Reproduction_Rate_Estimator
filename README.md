@@ -40,7 +40,7 @@ To run the app execute from command line:
 ```cd frontend/streamlit```
 ```streamlit run covid19-app-lags.py```
 
-![Screenshot 2021-05-10 at 23 17 51](https://user-images.githubusercontent.com/71489078/117725777-f28ebd00-b1e5-11eb-9c63-978b197be3f8.png)
+![Screenshot 2021-05-13 at 08 52 08](https://user-images.githubusercontent.com/71489078/118089335-815b2f80-b3c8-11eb-848f-19665f385c9d.png)
 
 ## Requirements
 
