@@ -49,7 +49,7 @@ Modelling and evaluation over approaches and models selected using two methodolo
 * [03_data_model_evaluation_lags.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation_lags.ipynb) - Modelling and evaluation of selected aproaches and models.
 * [04_data_model_shap_values_eval_lags.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval_lags.ipynb) - SHAP values analysis over best model and approach.
 
-## Streamlit applications
+## Streamlit Applications
 Two applications for two models presented have been developed:
 
 * [covid19-app.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app.py)
@@ -58,6 +58,7 @@ Two applications for two models presented have been developed:
 To run apps execute from command line:
 
 ```streamlit run covid19-app.py```
+
 ```streamlit run covid19-app-lags.py```
 
 
@@ -70,8 +71,7 @@ The image shown refers to [covid19-app-lags.py](https://github.com/lucasbotellar
 * To be able to execute notebooks it is required to have access to my Google Cloud Platform Project and a clients_secrets.json file, if not already conceded please contact me at lucasbotellaroca@gmail.com
  1. Once shared clients_secrets.json place that file in [notebooks](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/tree/main/notebooks) folder.
  2. Execute notebooks
- **It is important to note that file [00_weather_data.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/00_weather_data.ipynb) is not possible to be executed due to lack of resources, detailed in memory.
+ **It is important to note that file [00_weather_data.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/00_weather_data.ipynb) is not possible to be executed due to lack of resources, detailed in [memory.pdf](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/memory.pdf).
 ### Streamlit Applications
  1. Place yourself in folder [frontend](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/tree/main/frontend) and run commands detailed above.
- 
 * All libraries necessary to run this project are listed in file [requirements.txt](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/requirements.txt).
