@@ -57,17 +57,21 @@ Two applications for two models presented have been developed:
 
 To run apps execute from command line:
 
-```cd frontend/streamlit```
 ```streamlit run covid19-app.py```
-
-```cd frontend/streamlit```
 ```streamlit run covid19-app-lags.py```
 
 
 ![Screenshot 2021-05-13 at 08 52 08](https://user-images.githubusercontent.com/71489078/118089335-815b2f80-b3c8-11eb-848f-19665f385c9d.png)
 The image shown refers to [covid19-app-lags.py](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/covid19-app-lags.py)
 
-## Requirements
+## Requirements adn Execution
 
-* To be able to execute notebooks it is required to have access to my Google Cloud Platform Project and a clients_secrets.json files, if not already conceded please contact me at lucasbotellaroca@gmail.com
+### Notebooks
+* To be able to execute notebooks it is required to have access to my Google Cloud Platform Project and a clients_secrets.json file, if not already conceded please contact me at lucasbotellaroca@gmail.com
+ 1. Once shared clients_secrets.json place that file in notebooks folder.
+ 2. Execute notebooks
+ *It is important to note that file weather_data.ipynb is not possible to be executed due to lack of resources, detailed in memory.
+### Streamlit Applications
+ 1. Place yourself in folder frontend and run commands detailed above.
+ 
 * All libraries necessary to run this project are listed in file [requirements.txt](https://github.com/lucasbotellaroca/Death-Forecast-Models-Based-on-Political-Responses-COVID-19/blob/main/requirements.txt).
