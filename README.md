@@ -1,5 +1,6 @@
 # Covid-19 Reproduction Rate Estimator
 Author: [Lucas Botella Roca](https://www.linkedin.com/in/lucas-botella-roca-361209182/)
+
 ![Screenshot 2021-05-10 at 20 31 23](https://i.ibb.co/BLDbLqh/Screenshot-2021-05-10-at-18-39-00.png)
 
 The following summary is to serve as reference and how to navigate through this repository. In order to find in detail documentation of this project please refer to document [memory.pdf](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/memory.pdf) found in this repository. 
