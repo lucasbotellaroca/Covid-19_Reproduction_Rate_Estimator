@@ -41,7 +41,6 @@ st.sidebar.header('Specify Input Parameters')
 def user_input_features():
 
     reproduction_rate_week_n2 = st.sidebar.number_input('Reproduction Rate Week n-2', min_value=0.0, max_value=4.5, step=0.1, value=1.0)
-    mobility_closures_measures = st.sidebar.slider('Mobility closure measures',0, 3, 1)
     stay_home_requirements = st.sidebar.slider('Stay home requirements',0, 4, 1)
     restriction_gatherings = st.sidebar.slider('Restrictions in gatherings',0, 2, 1)
     restrictions_internal_movements = st.sidebar.slider('Restrictions in internal movements',0, 4, 1)
