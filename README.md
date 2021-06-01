@@ -44,11 +44,11 @@ Modelling and evaluation over approaches and models selected using two methodolo
   * **Models:** XGB Regressor, LGBM Regressor, Gradient Boosting Regressor, KNN Regressor, Histogram Boosting Regressor, NuSVR Regressor.
 
 #### Model 1: No Lag Methodology, feature explanatory
-* [03_data_model_evaluation.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation.ipynb) - Modelling and evaluation of selected aproaches and models.
+* [03_data_model_evaluation.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation.ipynb) - Modelling and evaluation of selected approaches and models.
 * [04_data_model_shap_values_eval.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval.ipynb) - SHAP values analysis over best model and approach.
 
 #### Model 2: Lag Methodology
-* [03_data_model_evaluation_lags.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation_lags.ipynb) - Modelling and evaluation of selected aproaches and models.
+* [03_data_model_evaluation_lags.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/03_data_model_evaluation_lags.ipynb) - Modelling and evaluation of selected approaches and models.
 * [04_data_model_shap_values_eval_lags.ipynb](https://github.com/lucasbotellaroca/Covid-19_Reproduction_Rate_Estimator/blob/main/notebooks/04_data_model_shap_values_eval_lags.ipynb) - SHAP values analysis over best model and approach.
 
 ## Streamlit Applications
